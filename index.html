@@ -9,15 +9,23 @@
 </head>
 <body>
     <div id="painel">
-        <button id="emergency">🚨 EMERGENCIA</button>
-        <title id="title">Cadastro de emergencia</title>
-        <button id="cadastrar"> 👩 Cadastro</button>
+        <div id="left-buttons">
+            <button id="emergency">🚨 EMERGENCIA</button>
+            <button id="cadastrar">👩 Cadastro</button>
+        </div>
+        <select id="settings" aria-label="Configurações" title="Configurações">
+            <option value="">⚙️ Configurações</option>
+            <option value="local">Verificar local seguro</option>
+            <option value="contatos">Salvar contatos de emergência</option>
+            <option value="notificacoes">Ativar notificações</option>
+        </select>
     </div>
+    
     <form action="" id="form">
-        <input class="input" id="nome" type="text" placeholder="Seu nome completo">
-        <input class="input" id="denuncia" type="text" placeholder="Sua denuncia">
-        <input class="input" id="onde" type="text" placeholder="Onde podemos te ajudar?">
-        <input class="input" id="contato" type="text" placeholder="Seu contato">
+        <input class="input" id="nome" type="text" placeholder="Seu nome completo" required>
+        <input class="input" id="denuncia" type="text" placeholder="Sua denuncia" required>
+        <input class="input" id="onde" type="text" placeholder="Onde podemos te ajudar?" required>
+        <input class="input" id="contato" type="text" placeholder="Seu contato" required>
         <button id="confirme" onclick="acionar(this.parentElement)">DENUNCIAR AGORA!</button>
     </form>
 
@@ -27,6 +35,7 @@
             const denuncia = formulario.querySelector("#denuncia").value
             const onde = formulario.querySelector("#onde").value
             const contato = formulario.querySelector("#contato").value
+            if (!nome || !denuncia || !onde || !contato) return;
             let confirmacao = confirm(`Olá ${nome}, Confirme seus dados e denuncie: Você é ${nome}, podemos entrar em contato com você por ${contato} e sua denuncia é ${denuncia}, certo?`)
             if (confirmacao) {
                 alert(`Ajuda a caminho, não se preucupe ${nome}, iremos te ajudar!`)
