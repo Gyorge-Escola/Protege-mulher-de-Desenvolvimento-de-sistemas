@@ -17,6 +17,17 @@
         <input class="input" id="denuncia" type="text" placeholder="Sua denuncia">
         <input class="input" id="onde" type="text" placeholder="Onde podemos te ajudar?">
         <input class="input" id="contato" type="text" placeholder="Seu contato">
+        <button onclick="acionar(this.parentElement)">DENUNCIAR AGORA!</button>
     </form>
+
+    <script>
+        function acionar(formulario) {
+            const nome = formulario.querySelector("#nome")
+            const denuncia = formulario.querySelector("#denuncia")
+            const onde = formulario.querySelector("#onde")
+            const contato = formulario.querySelector("#contato")
+            confirm(`Olá, ${nome},`)
+        }
+    </script>
 </body>
 </html>
