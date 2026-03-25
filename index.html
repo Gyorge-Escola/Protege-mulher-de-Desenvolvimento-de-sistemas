@@ -10,6 +10,7 @@
 <body>
     <div id="painel">
         <button id="emergency">🚨 EMERGENCIA</button>
+        <title id="title">Cadastro de emergencia</title>
         <button id="cadastrar"> 👩 Cadastro</button>
     </div>
     <form action="">
@@ -22,11 +23,14 @@
 
     <script>
         function acionar(formulario) {
-            const nome = formulario.querySelector("#nome")
-            const denuncia = formulario.querySelector("#denuncia")
-            const onde = formulario.querySelector("#onde")
-            const contato = formulario.querySelector("#contato")
-            confirm(`Olá, ${nome},`)
+            const nome = formulario.querySelector("#nome").value
+            const denuncia = formulario.querySelector("#denuncia").value
+            const onde = formulario.querySelector("#onde").value
+            const contato = formulario.querySelector("#contato").value
+            let confirmacao = confirm(`Olá ${nome}, Confirme seus dados e denuncie: Você é ${nome}, podemos entrar em contato com você por ${contato} e sua denuncia é ${denuncia}, certo?`)
+            if (confirmacao) {
+                alert(`Ajuda a caminho, não se preucupe ${nome}, iremos te ajudar!`)
+            }
         }
     </script>
 </body>
